@@ -1,3 +1,22 @@
+# Completed Solution info
+
+## setup & start backend
+
+- `npm i`
+- `npm run setup`
+- `npm start`
+
+## what I would add to my solution
+
+All 3 problems have been solved, with more time to expand further i would:
+
+- Improve styling with assets and animations, currently very simple and basic
+- Add component testing using React Testing Library
+- Add the ability to name each player and have a more robust stats and leaderboard system for multiple players
+- Host the game on the backend so multiple clients can be opened and players do not have to play on a single client
+
+some inline TODO comments were also added to the code where possible missing functionality would be implimented
+
 # Tic-Tac-Toe
 
 The below problems are to allow us a glimpse into your problem solving ability, style and current skill set. Please do problem 1, and optionally problem 2 or 3 depending on where you are most comfortable. We expect this test to take 2-3 hours, if you find yourself spending more than this do not aim to solve all 3 problems! We will not be judging based on number of problems completed only the style and thought process.
