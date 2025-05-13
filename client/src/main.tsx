@@ -1,22 +1,57 @@
-import React, { useState } from 'react'
-import { XorO } from './types'
-
+import React, { useState } from "react";
+import Setup from "./components/Setup";
+import Game from "./components/Game";
+import GameStats from "./components/GameStats";
+import useTicTacToe from "./hooks/useTicTacToe";
 
 export const Main = () => {
-  const [board, setBoard] = useState<(XorO | undefined)[][]>([
-    [undefined, undefined, undefined],
-    [undefined, undefined, undefined],
-    [undefined, undefined, undefined]
-  ])
+  const {
+    boardSize,
+    setSize,
+    board,
+    currentPlayer,
+    winner,
+    isDraw,
+    started,
+    statsRefreshKey,
+    startGame,
+    handleClick,
+    resetGame,
+  } = useTicTacToe();
 
-  return <div className='flex flex-col mt-10 items-center gap-10'>
-    <div className='font-bold text-2xl'>Tic Tac Toe</div>
-    <div className='flex flex-col gap-1'>
-      {board.map(row => <div className='flex gap-1'>
-        {row.map(column => <div className='border-2 border-gray-900 w-10 h-10 cursor-pointer items-center justify-center text-2xl font-bold flex'>
-          {column}
-        </div>)}
-      </div>)}
-    </div>
-  </div>
-}
+  return (
+    <>
+      <div className="flex justify-between items-center w-full px-10">
+        <div className="flex-1"></div>
+        {started && (
+          <div className="font-bold text-2xl text-center flex-1">
+            Tic Tac Toe
+          </div>
+        )}
+        <div className="flex-1 flex justify-end">
+          <GameStats refreshTrigger={statsRefreshKey} />
+        </div>
+      </div>
+
+      <div className="flex flex-col mt-10 items-center gap-10">
+        {!started && (
+          <Setup
+            boardSize={boardSize}
+            setSize={setSize}
+            startGame={startGame}
+          />
+        )}
+        {started && (
+          <Game
+            board={board}
+            currentPlayer={currentPlayer}
+            handleClick={handleClick}
+            winner={winner}
+            isDraw={isDraw}
+            resetGame={resetGame}
+          />
+        )}
+      </div>
+    </>
+  );
+};

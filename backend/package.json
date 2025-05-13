@@ -1,0 +1,19 @@
+{
+    "name": "tic-tac-toe-backend",
+    "version": "1.0.0",
+    "main": "server.ts",
+    "scripts": {
+        "start": "ts-node server.ts",
+        "setup": "sqlite3 tic-tac-toe.db < create_tables.sql"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "sqlite": "^5.1.1",
+        "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    }
+}
