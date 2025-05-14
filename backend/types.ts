@@ -10,3 +10,9 @@ export type GameResult = {
   loser?: XorO;
   draw?: boolean;
 };
+
+export type GameResultResponse = {
+  success?: boolean;
+  result?: string;
+  error?: string;
+};

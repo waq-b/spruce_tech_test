@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import { getDB } from "./db";
 import cors from "cors";
-import { GameResult, StatsObject, XorO } from "./types";
+import { GameResult, GameResultResponse, StatsObject, XorO } from "./types";
 
 const app: Application = express();
 app.use(cors());
@@ -15,7 +15,7 @@ app.post(
     res: {
       status: (arg0: number) => {
         json: {
-          (arg0: { success?: boolean; result?: string; error?: string }): void;
+          (arg0: GameResultResponse): void;
         };
       };
     }
