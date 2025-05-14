@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { XorO } from "../types";
 import { getPlayerLabel } from "../utils/utils";
 
@@ -8,7 +8,7 @@ type GameOverProps = {
   resetGame: () => void;
 };
 
-const GameOver = ({ resetGame, winner, isDraw }: GameOverProps) => {
+const GameOver: FC<GameOverProps> = ({ resetGame, winner, isDraw }) => {
   const label = winner
     ? `${getPlayerLabel(winner)} wins! 🎉`
     : "It's a tie! 🤝";

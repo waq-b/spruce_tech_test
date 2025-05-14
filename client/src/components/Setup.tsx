@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 type SetupProps = {
   boardSize: number;
@@ -6,7 +6,7 @@ type SetupProps = {
   startGame: () => void;
 };
 
-const Setup = ({ boardSize, setSize, startGame }: SetupProps) => {
+const Setup: FC<SetupProps> = ({ boardSize, setSize, startGame }) => {
   return (
     <div className="flex flex-col items-center gap-6 ">
       <h2 className="text-2xl font-semibold text-gray-800">

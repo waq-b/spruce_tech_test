@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
+import { GameStatsObject } from "../types";
 
-type Stats = {
-  X: { wins: number; losses: number };
-  O: { wins: number; losses: number };
-  draws: number;
-  totalGames: number;
-};
-
-const GameStats: React.FC<{ refreshTrigger: number }> = ({
-  refreshTrigger,
-}) => {
-  const [stats, setStats] = useState<Stats | null>(null);
+const GameStats: FC<{ refreshTrigger: number }> = ({ refreshTrigger }) => {
+  const [stats, setStats] = useState<GameStatsObject | null>(null);
 
   useEffect(() => {
     const fetchStats = async () => {

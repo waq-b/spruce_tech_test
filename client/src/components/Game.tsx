@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { XorO } from "../types";
 import { getPlayerLabel } from "../utils/utils";
 import GameOver from "./GameOver";
@@ -12,14 +12,14 @@ type GameProps = {
   resetGame: () => void;
 };
 
-const Game = ({
+const Game: FC<GameProps> = ({
   board,
   currentPlayer,
   handleClick,
   winner,
   isDraw,
   resetGame,
-}: GameProps) => {
+}) => {
   const gameOver = winner || isDraw;
   return (
     <div className="relative flex flex-col items-center">
